@@ -140,7 +140,7 @@ router.delete('/', (req, res, next) => {
                         url: 'http://localhost:3000/conta/'
                     }
                 }
-                return res.status(202).send(response)
+                return res.status(202).send(response) 
             }
         )
     })
