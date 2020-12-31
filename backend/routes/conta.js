@@ -10,4 +10,4 @@ router.get('/:id_dividendo', contaController.getUmaConta)
 router.patch('/', login.obrigatorio, contaController.attConta)
 router.delete('/', login.obrigatorio, contaController.excludeConta)
 
-module.exports = router
+module.exports = router 
