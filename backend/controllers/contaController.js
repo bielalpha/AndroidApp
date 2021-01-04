@@ -18,7 +18,7 @@ exports.getContas = (req, res, next) => {
                             request: {
                                 tipo: 'GET',
                                 descricao: "Retorna todos as contas",
-                                url: 'http://localhost:3000/conta/' + cont.ID_gasto
+                                url: process.env.URL_API + 'conta/' + cont.ID_gasto
                             }
                         }
                     })
@@ -49,7 +49,7 @@ exports.postContas = (req, res, next) => {
                         request: {
                             tipo: 'POST',
                             descricao: "Insere produto",
-                            url: 'http://localhost:3000/conta'
+                            url: process.env.URL_API + 'conta'
                         }
                     }
                 }
@@ -80,7 +80,7 @@ exports.getUmaConta = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: "Retorna um unico produto",
-                            url: 'http://localhost:3000/conta'
+                            url: process.env.URL_API + 'conta'
                         }
                     }
                 }
@@ -109,7 +109,7 @@ exports.attConta = (req, res, next) => {
                         request: {
                             tipo: 'GET',
                             descricao: "Retorna alteraçao do produto",
-                            url: 'http://localhost:3000/conta/' + req.body.ID_gasto
+                            url: process.env.URL_API + 'conta/' + req.body.ID_gasto
                         }
                     }
                 }
@@ -133,7 +133,7 @@ exports.excludeConta = (req, res, next) => {
                     request: {
                         tipo: 'DELETE',
                         descricao: "Retorna alteraçao do produto",
-                        url: 'http://localhost:3000/conta/'
+                        url: process.env.URL_API + 'conta'
                     }
                 }
                 return res.status(202).send(response)
