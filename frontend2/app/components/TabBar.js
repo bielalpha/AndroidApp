@@ -1,16 +1,31 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native'
 import Tab from './Tab'
 
 const { width } = Dimensions.get('screen')
 
 const TabBar = ({ state, navigation }) => {
+    const [selected, setSelected] = useState('Home')
     const { routes } = state;
+    const renderColor = currentTab => (currentTab === selected ? 'red' : 'black')
+
+    const handlePress = (activateTab, index) => {
+
+        if (state.index !== index) {
+            setSelected(activateTab)
+            navigation.navigate(activateTab)
+        }
+
+    }
+
     return (
         <View style={styles.wrapper}>
             <View style={styles.container}>
-                {routes.map(route => (
+                {routes.map((route, index) => (
                     <Tab tab={route}
+                        icon={route.params.icon}
+                        color={renderColor(route.name)}
+                        onPress={() => handlePress(route.name, index)}
                         key={route.key} />
                 ))}
             </View>
@@ -23,12 +38,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 20,
         width,
-        backgroundColor: 'red'
+        alignItems: 'center'
     },
     container: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#fff'
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: '#fff',
+        width: 250,
+        borderRadius: 50
     }
 })
 
