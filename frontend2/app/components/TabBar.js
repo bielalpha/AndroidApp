@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         backgroundColor: '#fff',
         width: 250,
-        borderRadius: 50
+        borderRadius: 50,
+        elevation: 2
     }
 })
 
