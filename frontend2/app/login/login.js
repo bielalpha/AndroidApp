@@ -33,7 +33,7 @@ export default class login extends Component {
     //    if (token && email) {
     //        this.setState({ loggedInUser: email })
     //    }
-    //}
+    //} 
 
     render() {
         return (

@@ -49,11 +49,10 @@ exports.postLogin = (req, res, next) => {
                     const token = jwt.sign({
                         id_user: results.id_user,
                         email: results.email
-                    }, process.env.JWT_KEY,
-                        {
-                            expiresIn: "1h"
-                        })
-                    return res.status(200).send({ mesage: 'E-mail autenticada com sucesso', token: token })
+                    }, process.env.JWT_KEY, {
+                        expiresIn: "1h"
+                    })
+                    return res.status(200).send({ mesage: 'E-mail autenticada com sucesso', token: token, email: req.body.email })
                 }
                 return res.status(401).send({ mesage: 'Falha na autenticaçao' })
             })
