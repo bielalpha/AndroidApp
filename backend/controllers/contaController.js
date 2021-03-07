@@ -53,7 +53,7 @@ exports.postContas = (req, res, next) => {
                         }
                     }
                 }
-                return res.status(201).send(response)
+                return res.status(201).send(response) 
             }
         )
     })
@@ -132,7 +132,7 @@ exports.excludeConta = (req, res, next) => {
                     mensage: 'Dividendo excluido com sucesso',
                     request: {
                         tipo: 'DELETE',
-                        descricao: "Retorna alteraçao do produto",
+                        descricao: "Retorna produto excluido",
                         url: process.env.URL_API + 'conta'
                     }
                 }
